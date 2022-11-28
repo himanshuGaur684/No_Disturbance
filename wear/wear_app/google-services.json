@@ -1,0 +1,113 @@
+{
+  "project_info": {
+    "project_number": "977994947854",
+    "project_id": "sandesh-89eb5",
+    "storage_bucket": "sandesh-89eb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977994947854:android:0366ac6cd9a173d63e0b5f",
+        "android_client_info": {
+          "package_name": "gaur.himanshu.august.sandes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977994947854-aqofef8jb1he7g1qeruhebl5t4qf0jjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhAA8XY1PL8z07p-FF_TR4rSYV2YcqAeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977994947854-aqofef8jb1he7g1qeruhebl5t4qf0jjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977994947854:android:14a23b040ee3d4673e0b5f",
+        "android_client_info": {
+          "package_name": "gaur.himanshu.nodisturbance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977994947854-njqk6k18eqgp18lqlbmr1ksei7pevsei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gaur.himanshu.nodisturbance",
+            "certificate_hash": "a7ce1df5e01be6af3baee315bd3df898ec1f2038"
+          }
+        },
+        {
+          "client_id": "977994947854-aqofef8jb1he7g1qeruhebl5t4qf0jjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhAA8XY1PL8z07p-FF_TR4rSYV2YcqAeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977994947854-aqofef8jb1he7g1qeruhebl5t4qf0jjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977994947854:android:9cec57305cee74643e0b5f",
+        "android_client_info": {
+          "package_name": "gaur.himanshu.wear_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977994947854-e5c9e20200gnpftsufnr9hsp143opopb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gaur.himanshu.wear_app",
+            "certificate_hash": "a7ce1df5e01be6af3baee315bd3df898ec1f2038"
+          }
+        },
+        {
+          "client_id": "977994947854-aqofef8jb1he7g1qeruhebl5t4qf0jjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhAA8XY1PL8z07p-FF_TR4rSYV2YcqAeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977994947854-aqofef8jb1he7g1qeruhebl5t4qf0jjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
