@@ -29,7 +29,17 @@ class HomeViewModel @Inject constructor(private val taskRepository: TaskReposito
         taskRepository.insertOrUpdateTask(task)
     }
 
+    fun updateTask(task:Task)=viewModelScope.launch {
+        taskRepository.updateTask(task)
+    }
+
     fun deleteTask(task: Task)=viewModelScope.launch {
         taskRepository.deleteTask(task)
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        taskRepository.onDestroy()
+    }
+
 }

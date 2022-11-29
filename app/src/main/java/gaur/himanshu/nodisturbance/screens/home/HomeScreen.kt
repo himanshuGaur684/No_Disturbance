@@ -33,9 +33,15 @@ import gaur.himanshu.nodisturbance.screens.home.components.TaskListItem
 fun HomeScreen(
     homeViewModel: HomeViewModel,
     navigator: DestinationsNavigator,
-    navigate: (DestinationsNavigator,Task) -> Unit
+    navigate: (DestinationsNavigator, Task) -> Unit
 ) {
     val showDialog = remember { mutableStateOf(false) }
+    val isEdit = remember {
+        mutableStateOf(false)
+    }
+    val task = remember {
+        mutableStateOf(Task("", ""))
+    }
 
     Scaffold(modifier = Modifier.padding(bottom = 55.dp), topBar = {
         TopAppBar(title = { Text(text = "Focus Work") })
@@ -49,21 +55,43 @@ fun HomeScreen(
         }) {
         Box(modifier = Modifier.fillMaxSize()) {
             if (showDialog.value) {
-                AddTaskDialog(showDialog = {
-                    showDialog.value = it
-                }, { activityName, relatedActivity ->
-                    homeViewModel.insertOrUpdateTask(
-                        Task(
-                            activityName, relatedActivity
-                        )
-                    )
-                })
+                AddTaskDialog(
+                    isEdit = isEdit.value,
+                    task = if (isEdit.value) task.value else null,
+                    showDialog = {
+                        showDialog.value = it
+                    },
+                    { activityName, relatedActivity, taskId, isEdit ->
+                        if (isEdit) {
+                            homeViewModel.updateTask(
+                                Task(
+                                    activityName = activityName,
+                                    relatedActivity = relatedActivity,
+                                    id = taskId.toString()
+                                )
+                            )
+                        } else {
+                            homeViewModel.insertOrUpdateTask(
+                                Task(
+                                    activityName = activityName, relatedActivity = relatedActivity
+                                )
+                            )
+                        }
+
+                    })
             }
             LazyColumn {
                 items(homeViewModel.taskList.value) {
-                    TaskListItem(task = it) {
-                        navigate.invoke(navigator,it)
-                    }
+                    TaskListItem(task = it, edit = {
+                        showDialog.value = !showDialog.value
+                        isEdit.value = !isEdit.value
+                        task.value = it
+                    }, delete = {
+                        Log.d("TAG", "HomeScreen: delete")
+                        homeViewModel.deleteTask(it)
+                    }, onClick = {
+                        navigate.invoke(navigator, it)
+                    })
                 }
             }
         }

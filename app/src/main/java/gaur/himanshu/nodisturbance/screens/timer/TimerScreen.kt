@@ -20,7 +20,12 @@ import kotlin.concurrent.timer
 @Composable
 fun TimerScreen(timerViewModel: TimerViewModel = hiltViewModel(), task: Task? = null) {
 
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = "Timer Screen")
+    Scaffold(topBar = {TopAppBar(title = { Text(text = "Timer")})}) {
+        Log.d("TAG", "TimerScreen: $it")
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(text = "Timer Screen")
+        }
     }
+
+
 }
