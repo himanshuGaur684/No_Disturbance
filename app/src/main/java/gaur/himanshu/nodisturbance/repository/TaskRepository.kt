@@ -26,12 +26,9 @@ class TaskRepository(private val taskDAO: TaskDAO, private val firestore: Fireba
             val id = document.id
             task.id = id
             collection.add(task).addOnSuccessListener {
-
             }
-
         }
     }
-
 
     suspend fun deleteTask(task: Task) {
         Log.d("TAG", "deleteTask: ")
@@ -42,7 +39,6 @@ class TaskRepository(private val taskDAO: TaskDAO, private val firestore: Fireba
                 if (remoteTask?.id == task.id) {
                     firestore.collection("activity").document(it.id).delete().addOnSuccessListener {
                         scope.launch {
-                            taskDAO.delete(task)
                             getAllTask()
                         }
                     }.addOnFailureListener {
@@ -50,17 +46,7 @@ class TaskRepository(private val taskDAO: TaskDAO, private val firestore: Fireba
                     }
                 }
             }
-
-
         }
-//
-//        firestore.collection("activity").document(task.id).delete().addOnSuccessListener {
-//            scope.launch {
-//                taskDAO.delete(task)
-//                getAllTask()
-//            }
-//
-//        }
     }
 
     suspend fun updateTask(task: Task) {
@@ -78,7 +64,6 @@ class TaskRepository(private val taskDAO: TaskDAO, private val firestore: Fireba
                         )
                     ).addOnSuccessListener {
                         scope.launch {
-                            taskDAO.insert(task)
                             getAllTask()
                         }
                     }.addOnFailureListener {
@@ -86,22 +71,7 @@ class TaskRepository(private val taskDAO: TaskDAO, private val firestore: Fireba
                     }
                 }
             }
-
-
         }
-//
-//        firestore.collection("activity").document(task.id).update(
-//            mapOf(
-//                "id" to task.id,
-//                "activityName" to task.activityName,
-//                "relatedActivity" to task.relatedActivity
-//            )
-//        ).addOnSuccessListener {
-//            scope.launch {
-//                taskDAO.insert(task)
-//                getAllTask()
-//            }
-//        }
     }
 
     suspend fun getAllTask() {
@@ -110,12 +80,7 @@ class TaskRepository(private val taskDAO: TaskDAO, private val firestore: Fireba
             value?.documents?.forEach {
                 it.toObject(Task::class.java)?.let { it1 -> list.add(it1) }
             }
-            scope.launch {
-                list.forEach {
-                    taskDAO.insert(it)
-                }
-                _taskList.value = taskDAO.getAllTask()
-            }
+            _taskList.value = list.toList()
         }
     }
 
