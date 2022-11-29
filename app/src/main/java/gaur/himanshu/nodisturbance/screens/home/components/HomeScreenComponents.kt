@@ -251,6 +251,5 @@ fun PopUpDialog(edit: () -> Unit, delete: () -> Unit) {
 
 class CloseNotification : NotificationListenerService() {
 
-
 }
 
