@@ -106,7 +106,6 @@ class TaskRepository(private val taskDAO: TaskDAO, private val firestore: Fireba
 
     suspend fun getAllTask() {
         val list = mutableSetOf<Task>()
-        _taskList.value = taskDAO.getAllTask()
         firestore.collection("activity").addSnapshotListener { value, error ->
             value?.documents?.forEach {
                 it.toObject(Task::class.java)?.let { it1 -> list.add(it1) }
